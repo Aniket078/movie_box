@@ -45,7 +45,7 @@ const Hero = (props) => {
                     <h1 className='text-2xl text-white'>{details[current].vote_average} /10</h1>
                 </div>
             </div>
-            <div className='h-14 bg-gradient-to-b from-[rgba(0,0,0)] to-grey-300'>
+            <div className='h-10 bg-gradient-to-t from-black to-[rgba(0,0,0,0)]'>
 
             </div>
         </div>
