@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import useFetch from "../../hooks/useFetch"
 import Hero from "../../component/hero/hero"
 import HomeLoading from "../loading/homeLoading"
+import Trending from "../../component/trending/trending"
 
 const Home = () => {
     const {data, loading, error} = useFetch("/movie/upcoming")
@@ -11,7 +12,13 @@ const Home = () => {
 
     return (
         <>
-            {loading ? <HomeLoading /> : data ? <Hero data={data} /> : <h1>error</h1>}
+            {loading ? <HomeLoading /> : data ? (
+                <>
+                    <Hero data={data} />
+                    <Trending />
+                </>
+            ) : 
+                <h1 className="text-4xl text-white">error</h1>}
         </>
     )
 }

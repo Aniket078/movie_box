@@ -7,7 +7,6 @@ import HeroVideo from '../heroVideo/heroVideo'
 const Hero = (props) => {
     const [current, setCurrent] = useState(0)
     const details = props.data.results
-    console.log(details);
     const baseUrl = useSelector(state => state.home.url.backdrop)
     const nextHero = () => setCurrent((current + 1) % details.length)
     const prevHero = () => {
@@ -51,7 +50,7 @@ const Hero = (props) => {
                 <div className='flex flex-col md:flex-row-reverse md:gap-9 gap-3'>
                     <div className='h-full'>
                         <h1 className='text-white ml-5'>Now showing</h1>
-                        <div className='h-full w-40 md:w-72 overflow-hidden bg-slate-400  rounded-xl border-2 border-red-500'>
+                        <div className='h-full w-40 md:w-72 overflow-hidden  bg-red-500 rounded-xl border-2 border-red-500'>
                             <HeroVideo index={current} results={props.data.results} />
                         </div>
                     </div>
@@ -61,7 +60,7 @@ const Hero = (props) => {
                     </div>
                 </div>
 
-                <div className='flex flex-col justify-center md:justify-end w-full overflow-x-hidden '>
+                <div className='flex flex-col justify-center md:justify-end w-full overflow-x-scroll '>
                     <h1 className='text-gray-200'>coming up</h1>
                     <div className='w-full '>
                         <div className='flex gap-9 w-full ' >

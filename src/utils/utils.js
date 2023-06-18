@@ -18,6 +18,6 @@ export const fetchData = async (url, params) => {
             return data
         }catch(e){
             console.log(e);
-            return e;
+            return null;
         }
 };
