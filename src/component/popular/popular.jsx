@@ -11,7 +11,6 @@ const Popular = () => {
     }
 
     const {data, loading} = useFetch(`/${category}/popular`)
-    console.log(data);
   return (
     <>
         <div className='flex  md:mx-20  my-10 justify-between'>

@@ -11,7 +11,6 @@ const TopRated = () => {
     }
 
     const {data, loading} = useFetch(`/${category}/top_rated`)
-    console.log(data);
   return (
     <>
         <div className='flex  md:mx-20  my-10 justify-between'>

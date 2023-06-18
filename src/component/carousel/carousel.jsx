@@ -28,7 +28,7 @@ const Carousel = ( {data, loading} ) => {
         {data?.map( (card) => {
           const url = card.poster_path ? baseUrl + card.poster_path : fallBackUrl
           return (
-            <div onClick={() => {navigate(`/${card.media_type}/${card.id}`)}}  key={card.id} className='cursor-pointer min-w-max rounded-lg relative mb-4'>
+            <div onClick={() => {navigate(`/${card.first_air_date ? "tv" : "movie"}/${card.id}`)}}  key={card.id} className='cursor-pointer min-w-max rounded-lg relative mb-4'>
               <img className='h-40 md:h-56 rounded-lg' src={url} />
               <h1 className='text-gray-200 mt-1  text-xs md:text-sm w-28 md:w-36 text-center'>{card.name? card.name.slice(0, 12) : card.title.slice(0, 15)}....</h1>
               <h1 className='text-gray-500 text-xs md:text-sm w-28 md:w-36 text-center'>{card.first_air_date ? dayjs(card.first_air_date).format("MMM D, YYYY"): dayjs(card.release_date).format("MMM D, YYYY")}</h1>

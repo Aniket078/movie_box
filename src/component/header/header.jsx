@@ -1,5 +1,5 @@
 import {  useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 const Header = () => {
     const [active, setActive] = useState(false)
     const toggleNav = () => setActive(!active)
@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <>
             <div  className="backdrop-blur-sm  flex flex-row h-16 md:h-28 justify-between px-4 md:px-12 items-center  text-white  top-0 z-10 w-full fixed">
-                <div><h1 className="cursor-pointer font-bold">Movie Box</h1></div>
+                <div><h1 className="cursor-pointer font-bold"><Link to="/" />Movie Box</h1></div>
                 <div className=" text-xs gap-14 hidden md:flex">
                     <div>Movies</div>
                     <div>TV Shows</div>

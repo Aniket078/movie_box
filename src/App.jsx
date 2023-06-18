@@ -52,7 +52,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Header />} >
           <Route index element = {<Home />} />
-          <Route path="/:mediaType/:id" element = {<Details />} />
+          <Route path="/:media_type/:id" element = {<Details />} />
           <Route path="/search/:query"  element = {<SearchResult />} />
           <Route path="/explore/:mediaType" element = {<Explore />} />
         </Route>
