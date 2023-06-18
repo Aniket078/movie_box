@@ -5,6 +5,7 @@ import HomeLoading from "../loading/homeLoading"
 import Trending from "../../component/trending/trending"
 import Popular from "../../component/popular/popular"
 import TopRated from "../../component/topRated/topRated"
+import Error from "../error/error"
 
 const Home = () => {
     const {data, loading, error} = useFetch("/movie/upcoming")
@@ -22,7 +23,7 @@ const Home = () => {
                     <TopRated />
                 </>
             ) : 
-                <h1 className="text-4xl text-white">error</h1>}
+                <Error />}
         </>
     )
 }

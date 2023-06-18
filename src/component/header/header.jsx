@@ -1,35 +1,32 @@
 import {  useState } from "react"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useNavigate } from "react-router-dom"
 const Header = () => {
+    const navigate = useNavigate()
     const [active, setActive] = useState(false)
-    const toggleNav = () => setActive(!active)
-    const disableNav = () => setActive(false)
+    const toggleSearch = () => setActive(!active)
+    const disableSearch = () => setActive(false)
+    const [query, setQuery] = useState("")
+    const fill = (e) => {
+        setQuery(e.target.value)
+        console.log(query);
+    }
+    const submit = () => {
+        console.log(query);
 
-
+    }
     return (
         <>
+            {active&&<div className="absolute h-screen w-full flex gap-4 flex-col items-center justify-center backdrop-blur-xl bg-white/3 z-50">
+                <div className="w-3/4 flex justify-end m-9">
+                    <div onClick={disableSearch} className="text-white text-4xl">X</div>
+                </div>
+                <input onChange={fill}  placeholder="Search.." className="w-3/4 h-16 bg-[#c5c5c56c] rounded-md"/>
+                <button onClick={() => {navigate(`/search/${query}`)}} className="w-3/4 h-16 text-2xl rounded-2xl bg-red-500">Search</button>
+            </div>}
             <div  className="backdrop-blur-sm  flex flex-row h-16 md:h-28 justify-between px-4 md:px-12 items-center  text-white  top-0 z-10 w-full fixed">
-                <div><h1 className="cursor-pointer font-bold"><Link to="/" />Movie Box</h1></div>
-                <div className=" text-xs gap-14 hidden md:flex">
-                    <div>Movies</div>
-                    <div>TV Shows</div>
-                    <div className="">Favourites</div> 
-                </div>
-                <div className=" rounded-md  flex"><input className="w-20 bg-[#c5c5c56c] rounded-md"/><img className="bg-[#ffffffa2]  rounded-md mx-1 " width="25" height="25" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/> </div>
-                <div  className="space-y-2 cursor-pointer md:hidden relative" onClick={toggleNav} >
-                    <span className="block w-5 h-1 bg-white hover:bg-red-500"></span>
-                    <span className="block w-8 h-1 bg-white hover:bg-red-500"></span>
-                    <span className="block w-8 h-1 bg-white hover:bg-red-500"></span>
-                    <div id="nav" onClick={disableNav} onMouseLeave={disableNav}  className="w-auto  right-0 top-10   absolute rounded-md bg-black  border-[1px] border-white  ">
-                        <div className={active ? "" : "hidden"}>
-                            <ul className="p-10 bg-[#c5c5c529]">
-                                <li className="m-3 text-lg hover:text-red-500">Movies</li>
-                                <li className="m-3 text-lg hover:text-red-500">TV shows</li>
-                                <li className="m-3 text-lg hover:text-red-500">Favourites</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div><h1 className="cursor-pointer font-bold"><Link to={"/"} >Movie Box</Link></h1></div>
+                <div onClick={toggleSearch} className="cursor-pointer rounded-md  flex"><img className="bg-white  rounded-full mx-1  " width="35" height="35" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/> </div>
+                
             </div>
             <Outlet />
         </>
