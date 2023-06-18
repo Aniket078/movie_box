@@ -3,7 +3,7 @@ import React from 'react'
 import {  useState, useEffect } from "react"
 import { useSelector } from 'react-redux'
 import HeroVideo from '../heroVideo/heroVideo'
-
+import dayjs from 'dayjs'
 const Hero = (props) => {
     const [current, setCurrent] = useState(0)
     const details = props.data.results
@@ -34,7 +34,7 @@ const Hero = (props) => {
                         <p className=' pl-4 text-xs md:text-sm w-52 md:w-96 text-[rgba(255,255,255,0.5)]'>{details[current].overview.slice(0, 200)}.......</p>
                             <div className="flex  md:flex-row gap-3 pl-4">
                                 <div className="h-10 flex items-center text-xs  md:text-sm p-1 md:px-5 text-[rgba(255,255,255,0.5)]  border-[rgba(255,255,255,0.4)] border-lg rounded-full border-[1px]"><p>{details[current].adult ? "Adult: True" : "Adult: False"}</p></div>
-                                <div className="h-10 flex items-center text-xs  md:text-sm p-1 md:px-5 text-[rgba(255,255,255,0.5)] border-[rgba(255,255,255,0.4)] border-lg rounded-full border-[1px]"><p>{details[current].release_date}</p></div>
+                                <div className="h-10 flex items-center text-xs  md:text-sm p-1 md:px-5 text-[rgba(255,255,255,0.5)] border-[rgba(255,255,255,0.4)] border-lg rounded-full border-[1px]"><p>{dayjs(details[current].release_date).format("MMM D, YYYY")}</p></div>
                             </div>
                         </div>
                         <div className='w-full flex justify-center'>

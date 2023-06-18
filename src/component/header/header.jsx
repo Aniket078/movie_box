@@ -1,32 +1,14 @@
-import { useRef, useState } from "react"
+import {  useState } from "react"
 import { Outlet } from "react-router-dom"
 const Header = () => {
     const [active, setActive] = useState(false)
     const toggleNav = () => setActive(!active)
     const disableNav = () => setActive(false)
-    const ref = useRef()
-    console.log(ref.current);
-    // window.onscroll = function() {myFunction()};
 
-    // // Get the header
-    // var header = document.getElementById("header");
-    // console.log(header);
-
-    // // Get the offset position of the navbar
-    // var sticky = header.offsetTop;
-
-    // // Add the solid class to the header when you reach its scroll position. Remove "solid" when you leave the scroll position
-    // function myFunction() {
-    // if (window.pageYOffset > sticky) {
-    //     header.classList.add("bg-[#43434329] ");
-    // } else {
-    //     header.classList.remove("bg-[#43434329] ");
-    // }
-    // }
 
     return (
         <>
-            <div ref={ref} id="header"  className="backdrop-blur-sm  flex flex-row h-28 justify-between px-4 md:px-12 items-center  text-white  top-0 z-10 w-full fixed">
+            <div  className="backdrop-blur-sm  flex flex-row h-16 md:h-28 justify-between px-4 md:px-12 items-center  text-white  top-0 z-10 w-full fixed">
                 <div><h1 className="cursor-pointer font-bold">Movie Box</h1></div>
                 <div className=" text-xs gap-14 hidden md:flex">
                     <div>Movies</div>

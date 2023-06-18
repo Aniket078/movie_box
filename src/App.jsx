@@ -10,13 +10,30 @@ import { useDispatch } from 'react-redux'
 import Details from './pages/Details/details'
 import SearchResult from './pages/searchResult/searchResult'
 import Explore from './pages/explore/explore'
-
+import { getGenres } from './store/homeSlice'
 function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
     fetchApiConfig();
+    genresCall();
   }, [])
+  
+  const genresCall = async () => {
+    let promises = [];
+    let endpoints = ['tv', 'movie'];
+    let allGenres = {};
+
+    endpoints.forEach( (url) => {
+      promises.push(fetchData(`/genre/${url}/list`));
+    })
+    const data = await Promise.all(promises)
+    data.map( ({genres}) => {
+      return genres.map( (item) => allGenres[item.id] = item )
+    })
+    dispatch(getGenres(allGenres))
+  }
+
   
   const fetchApiConfig = async () => {
     const res = await fetchData("/configuration")
