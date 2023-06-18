@@ -13,3 +13,23 @@ body{
     background-color: rgb(50, 50, 50);
     position: relative;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #26234d;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #616060;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
