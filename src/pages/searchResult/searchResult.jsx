@@ -47,7 +47,6 @@ const SearchResult = () => {
     fetchInitialData( )
   }, [query])
 
-  const navigate = useNavigate()
   return (
     <>
       {loading ? <HomeLoading /> : 
@@ -55,7 +54,7 @@ const SearchResult = () => {
           data?.results.length > 0 ? (
             <>
               <div className='text-white px-2 md:px-6 relative'>
-                <h1 className='text-3xl mt-20 md:mt-28 mb-4'>{`Search ${data.total_results > 1 ? "results" : "result"} of ${query}`}</h1>
+                <h1 className='text-3xl pt-20 md:pt-28 mb-4'>{`Search ${data.total_results > 1 ? "results" : "result"} of ${query}`}</h1>
                 <InfiniteScroll className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4' dataLength={data?.results?.length || []} next={fetchNextPageData} hasMore={pageNum <= data?.total_pages} loader={<SearchLoading />} >
                   {data.results.map((item, index) => {
                     if(item.media_type === 'person') return

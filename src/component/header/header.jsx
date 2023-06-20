@@ -9,7 +9,6 @@ const Header = () => {
     const [query, setQuery] = useState("")
     const fill = (e) => {
         setQuery(e.target.value)
-        console.log(query);
     }
     const submit = () => {
         console.log(query);
@@ -17,7 +16,7 @@ const Header = () => {
     }
     return (
         <>
-            {active&&<div className="fixed h-screen w-full flex gap-4 flex-col items-center justify-center backdrop-blur-xl bg-white/3 z-50">
+            {active&&<div className="fixed h-screen w-full flex gap-4 flex-col items-center justify-center backdrop-blur-sm bg-white/20 z-50">
                 <form onSubmit={submit} className="relative flex flex-col gap-4 w-72 md:w-96">
                     <input onChange={fill}  placeholder="Movie or TV shows.." className="text-white text-center text-2xl h-16 bg-[#c5c5c56c] rounded-md"/>
                     <button onClick={() => {navigate(`/search/${query}`)}} className=" h-16 text-2xl rounded-xl bg-red-500">Search</button>
