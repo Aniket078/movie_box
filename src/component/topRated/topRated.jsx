@@ -17,7 +17,7 @@ const TopRated = () => {
     <>
         <div className='flex  md:mx-20  my-10 justify-between'>
           <motion.h1 
-            initial={{ y:80 }}
+            initial={{ y:20 }}
             whileInView={{y:0 }}
             transition={{ duration: 0.4, }}  
             className='text-white text-4xl md:text-6xl '>  Top Rated</motion.h1>
@@ -26,7 +26,7 @@ const TopRated = () => {
           </div>
         </div>
         <motion.div 
-          initial={{ y: 300 }}
+          initial={{ y: 100 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}  
           className='md:mx-20 overflow-hidden'>

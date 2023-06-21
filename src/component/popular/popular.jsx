@@ -26,7 +26,7 @@ const Popular = () => {
         </div>
         <motion.div 
           className='md:mx-20 overflow-hidden '
-          initial={{ y: 300 }}
+          initial={{ y: 100 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}  
         >

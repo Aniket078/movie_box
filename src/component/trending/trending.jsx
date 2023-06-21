@@ -20,9 +20,9 @@ const Trending = () => {
     <>
         <div className='flex  md:mx-20  my-10 justify-between'>
           <motion.h1
-            initial={{ y:100 }}
-            whileInView={{y:0 }}
-            transition={{ duration: 0.5, }}  
+            initial={{ opacity:0 }}
+            whileInView={{opacity:1 }}
+            transition={{ duration: 0.2, }}  
             className='text-white text-4xl md:text-6xl '> Trending</motion.h1>
           <div className='flex gap-3 items-center'>
             <SwitchTab sTab={time} onTabChange={onTabChange} data={["day", "week"]} />
@@ -30,7 +30,7 @@ const Trending = () => {
           </div>
         </div>
         <motion.div 
-          initial={{ y: 300 }}
+          initial={{ y: 100 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}
           className='md:mx-20 overflow-hidden '>
