@@ -20,13 +20,6 @@ const SearchResult = () => {
     fetchData(`/search/multi?query=${query}&page=${pageNum}`).then(
       (res) => {
         setData(res);
-        console.log(res);
-        res.results.filter(
-          function (d,indx) { 
-              return indx%2 != 1
-          }
-      )
-        console.log(res);
         setPageNum( (prev) => prev+1)
         setLoading(false)
       }
@@ -50,7 +43,7 @@ const SearchResult = () => {
   }
 
   useEffect( () => {
-    fetchInitialData( )
+    // fetchInitialData( )
   }, [query])
 
   return (
@@ -69,13 +62,16 @@ const SearchResult = () => {
                     )
                   })}
                 </InfiniteScroll> */}
-                <div className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4'  >
+                {/* <div className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4'  >
                   {data.results.map((item, index) => {
                     if(item.media_type === 'person') return
                     return (
                       <MovieCard data={item} key={index} />
                     )
                   })}
+                </div> */}
+                <div className=' w-full'>
+                  <button className='bg-white w-72 mx-auto' onClick={fetchNextPageData} >Load more</button>
                 </div>
               </div>
             </>
