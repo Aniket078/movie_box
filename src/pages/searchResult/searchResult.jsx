@@ -19,7 +19,8 @@ const SearchResult = () => {
     setLoading(true)
     fetchData(`/search/multi?query=${query}&page=${pageNum}`).then(
       (res) => {
-        setData(res);
+        setData(res)
+        console.log(res);
         setPageNum( (prev) => prev+1)
         setLoading(false)
       }
@@ -43,7 +44,7 @@ const SearchResult = () => {
   }
 
   useEffect( () => {
-    // fetchInitialData( )
+    fetchInitialData( )
   }, [query])
 
   return (
@@ -62,21 +63,23 @@ const SearchResult = () => {
                     )
                   })}
                 </InfiniteScroll> */}
-                {/* <div className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4'  >
+                <div className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4'  >
                   {data.results.map((item, index) => {
                     if(item.media_type === 'person') return
                     return (
                       <MovieCard data={item} key={index} />
                     )
                   })}
-                </div> */}
-                <div className=' w-full'>
-                  <button className='bg-white w-72 mx-auto' onClick={fetchNextPageData} >Load more</button>
+                </div>
+                <div className='w-full flex items-center justify-center '>
+                  <button className='bg-white w-72 p-2 rounded-lg' onClick={fetchNextPageData} >Load more</button>
                 </div>
               </div>
             </>
           ) : 
-            <h1> sorry no result found</h1>
+            <>
+              <h1 className='text-3xl text-white mt-20 md:mt-28 md:px-5'> sorry no result found</h1>
+            </>
           
         )
       }

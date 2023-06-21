@@ -10,8 +10,9 @@ const Header = () => {
     const fill = (e) => {
         setQuery(e.target.value)
     }
-    const submit = () => {
-        console.log(query);
+    const submit = (e) => {
+        e.preventDefault();
+        disableSearch()
 
     }
     return (
