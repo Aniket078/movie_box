@@ -22,7 +22,7 @@ const Hero = (props) => {
 
     useEffect(() => {
         const next = (current + 1) % details.length;
-        const id = setTimeout(() => setCurrent(next), 100000);
+        const id = setTimeout(() => setCurrent(next), 10000);
         return () => clearTimeout(id);
       }, [current]);
 
