@@ -3,6 +3,10 @@ import useFetch from "../../hooks/useFetch"
 import { useParams } from "react-router-dom"
 import HomeLoading from "../loading/homeLoading"
 import dayjs from "dayjs"
+import HeroBackground from "../../component/animate/heroBackground"
+import { motion, AnimatePresence } from "framer-motion"
+motion
+
 const Details = () => {
   const {media_type, id} = useParams()
   const {data, loading} = useFetch(`/${media_type}/${id}`)
@@ -12,14 +16,21 @@ const Details = () => {
   return (
     <>
       {loading ? <HomeLoading /> : data ? 
-      <>
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{duration:2}}
+        >
+          
         <div style={{background:"linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 60%)"}} className="relative h-screen w-full flex flex-col items-center ">
-          <div style={{backgroundImage: 'url(' + url.backdrop + data.backdrop_path + ')' }} className= {`absolute h-full w-full brightness-80   bg-cover bg-center -z-20  `} ></div>
+        <HeroBackground url={url.backdrop + data.backdrop_path} />
           {/* poster and intro */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:mx-10 pt-52 justify-center">
             <div className=" " ><img className="h-52 " src={url.poster + data.poster_path} /></div>
             <div className=" max-w-xl h-full backdrop-blur-lg bg-black/30 md:p-5">
-              <h1 className="text-3xl md:text-6xl text-white">{data.title}</h1>
+              <h1 className="text-3xl md:text-6xl text-white">{data.original_title || data.original_name}</h1>
               <h1 className="  text-gray-300 text-sm mt-1">{data.tagline}</h1>
               <div className="flex gap-3 my-3 overflow-hidden">
                 {data.genres.map( (genre) => {
@@ -44,8 +55,10 @@ const Details = () => {
               <h1 className="w-80 text-gray-500 px-3">Description</h1>
               <p className="text-gray-300 p-3 text-sm">{data.overview}</p>
           </div>
-        </div> 
-      </>
+        </div>
+
+        </motion.div> 
+      </AnimatePresence>
     : <h1>error</h1>}
     </>
   )

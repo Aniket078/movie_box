@@ -5,7 +5,7 @@ import { fetchData } from '../../utils/utils'
 import HomeLoading from '../loading/homeLoading'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieCard from '../../component/movieCard/movieCard'
-import loader from "./../../assets/loader.png"
+import down from "./../../assets/down.png"
 import SearchLoading from '../loading/searchLoading'
 
 
@@ -63,7 +63,7 @@ const SearchResult = () => {
                     )
                   })}
                 </InfiniteScroll> */}
-                <div className=' grid grid-cols-3 sm:grid-col-4 md:grid-cols-5 lg:grid-cols-7 gap-4'  >
+                <div className=' grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 justify-center'  >
                   {data.results.map((item, index) => {
                     if(item.media_type === 'person') return
                     return (
@@ -71,8 +71,8 @@ const SearchResult = () => {
                     )
                   })}
                 </div>
-                <div className='w-full flex items-center justify-center '>
-                  <button className='bg-white w-72 p-2 rounded-lg' onClick={fetchNextPageData} >Load more</button>
+                <div className='w-full flex items-center justify-center my-9 '>
+                  <button className='bg-white w-72 p-2 rounded-lg text-black relative ' onClick={fetchNextPageData} >Load more<img className='animate-bounce absolute -right-9 top-3' width="26" height="26" src={down} alt="down--v1"/> </button>
                 </div>
               </div>
             </>

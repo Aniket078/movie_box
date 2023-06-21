@@ -4,6 +4,8 @@ import {  useState, useEffect } from "react"
 import { useSelector } from 'react-redux'
 import HeroVideo from '../heroVideo/heroVideo'
 import dayjs from 'dayjs'
+import HeroText from '../animate/heroText'
+import HeroBackground from '../animate/heroBackground'
 const Hero = (props) => {
     const [current, setCurrent] = useState(0)
     const details = props.data.results
@@ -24,11 +26,12 @@ const Hero = (props) => {
 
     return (
         <>
-        { details && <div style={{background:"linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)"}} className="relative h-screen w-full">
-            <div style={{backgroundImage: 'url(' + baseUrl + details[current].backdrop_path + ')' }} className= {`absolute h-full w-full brightness-75   bg-cover bg-center -z-20  `} ></div>
+        { details && 
+        <div style={{background:"linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)"}} className="overflow-hidden relative h-screen w-full">
+            <HeroBackground key={current} url={baseUrl + details[current].backdrop_path} />
             <div className="h-[70vh] w-full flex justify-center items-center pt-16 z-20">
                 <div className=" text-white flex flex-col gap-8">
-                    <h1 className="pl-4 tracking-widest uppercase text-5xl sm:text-7xl md:text-8xl text-white ">{details[current].original_title} </h1>
+                    <div className="pl-4 overflow-hidden tracking-widest uppercase text-5xl sm:text-7xl md:text-8xl text-white "> <HeroText key={current} text={details[current].original_title} /> </div>
                     <div className='flex justify-between p-2 items-center'>
                         <div className='flex gap-3 flex-col  '>
                         <p className=' pl-4 text-xs md:text-sm w-52 md:w-96 text-[rgba(255,255,255,0.5)]'>{details[current].overview.slice(0, 200)}.......</p>

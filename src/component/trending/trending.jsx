@@ -2,6 +2,7 @@ import  { useState } from 'react'
 import SwitchTab from '../switchTab/switchTab'
 import useFetch from "../../hooks/useFetch"
 import Carousel from '../carousel/carousel.jsx'
+import { motion } from 'framer-motion'
 const Trending = () => {
 
     const [time, setTime] = useState("day")
@@ -18,15 +19,23 @@ const Trending = () => {
   return (
     <>
         <div className='flex  md:mx-20  my-10 justify-between'>
-          <h1 className='text-white text-4xl md:text-6xl '> Trending</h1>
+          <motion.h1
+            initial={{ y:100 }}
+            whileInView={{y:0 }}
+            transition={{ duration: 1, }}  
+            className='text-white text-4xl md:text-6xl '> Trending</motion.h1>
           <div className='flex gap-3 items-center'>
             <SwitchTab sTab={time} onTabChange={onTabChange} data={["day", "week"]} />
             <SwitchTab sTab={category} onTabChange={onCategoryChange} data={["tv", "movie"]} />
           </div>
         </div>
-        <div className='md:mx-20  '>
+        <motion.div 
+          initial={{ y: 300 }}
+          whileInView={{y:0 }}
+          transition={{ duration: 0.2 }}
+          className='md:mx-20  '>
             <Carousel loading={loading} data={data?.results} />
-        </div>
+        </motion.div>
         
     </>
   )
