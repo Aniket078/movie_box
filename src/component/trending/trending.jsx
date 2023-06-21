@@ -22,7 +22,7 @@ const Trending = () => {
           <motion.h1
             initial={{ y:100 }}
             whileInView={{y:0 }}
-            transition={{ duration: 1, }}  
+            transition={{ duration: 0.5, }}  
             className='text-white text-4xl md:text-6xl '> Trending</motion.h1>
           <div className='flex gap-3 items-center'>
             <SwitchTab sTab={time} onTabChange={onTabChange} data={["day", "week"]} />
@@ -33,7 +33,7 @@ const Trending = () => {
           initial={{ y: 300 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}
-          className='md:mx-20  '>
+          className='md:mx-20 overflow-hidden '>
             <Carousel loading={loading} data={data?.results} />
         </motion.div>
         

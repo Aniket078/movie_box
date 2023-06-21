@@ -19,7 +19,7 @@ const TopRated = () => {
           <motion.h1 
             initial={{ y:80 }}
             whileInView={{y:0 }}
-            transition={{ duration: 1, }}  
+            transition={{ duration: 0.4, }}  
             className='text-white text-4xl md:text-6xl '>  Top Rated</motion.h1>
           <div className='flex gap-3 items-center'>
             <SwitchTab sTab={category} onTabChange={onCategoryChange} data={["tv", "movie"]} />
@@ -29,7 +29,7 @@ const TopRated = () => {
           initial={{ y: 300 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}  
-          className='md:mx-20 '>
+          className='md:mx-20 overflow-hidden'>
             <Carousel loading={loading} data={data?.results} />
         </motion.div>
         
