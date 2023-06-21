@@ -21,6 +21,12 @@ const SearchResult = () => {
       (res) => {
         setData(res);
         console.log(res);
+        res.results.filter(
+          function (d,indx) { 
+              return indx%2 != 1
+          }
+      )
+        console.log(res);
         setPageNum( (prev) => prev+1)
         setLoading(false)
       }
