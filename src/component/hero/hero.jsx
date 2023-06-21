@@ -22,7 +22,7 @@ const Hero = (props) => {
 
     useEffect(() => {
         const next = (current + 1) % details.length;
-        const id = setTimeout(() => setCurrent(next), 10000);
+        const id = setTimeout(() => setCurrent(next), 7000);
         return () => clearTimeout(id);
       }, [current]);
 
@@ -32,7 +32,7 @@ const Hero = (props) => {
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{duration:1}}
+                transition={{duration:0.7}}
                 key={current}
             >
                 <div style={{background:"linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)"}} className="overflow-hidden relative h-screen w-full">
