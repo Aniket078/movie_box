@@ -6,25 +6,27 @@ import HeroVideo from '../heroVideo/heroVideo'
 import dayjs from 'dayjs'
 import HeroText from '../animate/heroText'
 import HeroBackground from '../animate/heroBackground'
+import visit from  "./../../assets/visit.png"
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 const Hero = (props) => {
     const [current, setCurrent] = useState(0)
+    const navigate = useNavigate()
     const details = props.data.results
     const baseUrl = useSelector(state => state.home.url.backdrop)
     const nextHero = () => setCurrent((current + 1) % details.length)
     const prevHero = () => {
         if(current===0)
-            setCurrent(details.length-1)
+            setCurrent(details.length)
         else
             setCurrent((current - 1) % details.length)
     }
-
     useEffect(() => {
         const next = (current + 1) % details.length;
         const id = setTimeout(() => setCurrent(next), 7000);
         return () => clearTimeout(id);
-      }, [current]);
+    }, [current]);
 
     return (
         <>
@@ -37,12 +39,12 @@ const Hero = (props) => {
             >
                 <div style={{background:"linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%)"}} className="overflow-hidden relative h-screen w-full">
                     <HeroBackground key={current} url={baseUrl + details[current].backdrop_path} />
-                    <div className="h-[70vh] w-full flex justify-center items-center pt-16 z-20">
+                    <div className="h-[70vh] w-full flex justify-center items-center pt-16 z-20 ">
                         <div className=" text-white flex flex-col gap-8">
-                            <div className="pl-4 overflow-hidden tracking-widest uppercase text-5xl sm:text-7xl md:text-8xl text-white "> <HeroText key={current} text={details[current].original_title} /> </div>
+                            <div className="pl-4 overflow-hidden tracking-widest uppercase text-5xl sm:text-7xl md:text-8xl text-white  "> <HeroText key={current} text={details[current].original_title} /></div>
                             <div className='flex justify-between p-2 items-center'>
                                 <div className='flex gap-3 flex-col  '>
-                                <p className=' pl-4 text-xs md:text-sm w-52 md:w-96 text-[rgba(255,255,255,0.5)]'>{details[current].overview.slice(0, 200)}.......</p>
+                                <p className=' pl-4 text-xs md:text-sm w-52 md:w-96 text-[rgba(255,255,255,0.5)] '>{details[current].overview.slice(0, 200)}.......</p>
                                     <div className="flex  md:flex-row gap-3 pl-4">
                                         <div className="h-10 flex items-center text-xs  md:text-sm p-1 md:px-5 text-[rgba(255,255,255,0.5)]  border-[rgba(255,255,255,0.4)] border-lg rounded-full border-[1px]"><p>{details[current].adult ? "Adult: True" : "Adult: False"}</p></div>
                                         <div className="h-10 flex items-center text-xs  md:text-sm p-1 md:px-5 text-[rgba(255,255,255,0.5)] border-[rgba(255,255,255,0.4)] border-lg rounded-full border-[1px]"><p>{dayjs(details[current].release_date).format("MMM D, YYYY")}</p></div>
@@ -50,7 +52,7 @@ const Hero = (props) => {
                                 </div>
                                 <div className='w-full flex justify-center'>
                                     <div className=" bg-[rgba(87,78,78,0.5)] animate-pulse flex items-center p-3  md:p-7  border-[3px] border-white rounded-full">
-                                        <h1 className='text-2xl text-white'>{details[current].vote_average} /10</h1>
+                                        <h1 className='text-2xl text-white relative'>{details[current].vote_average} /10<img onClick={() => {navigate(`/${details[current].first_air_date ? "tv" : "movie"}/${details[current].id}`)}}  className='absolute h-10 w-10 bottom-12  right-0' src={visit} ></img></h1>
                                     </div>
                                 </div>
                             </div>

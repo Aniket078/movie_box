@@ -30,7 +30,7 @@ const Trending = () => {
           </div>
         </div>
         <motion.div 
-          initial={{ y: 100 }}
+          initial={{ y: 50 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}
           className='md:mx-20 overflow-hidden '>

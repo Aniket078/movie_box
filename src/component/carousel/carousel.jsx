@@ -6,7 +6,7 @@ import dayjs from 'dayjs'
 import { useNavigate } from 'react-router-dom'
 
 const Carousel = ( {data, loading} ) => {
-  const baseUrl = useSelector(state => state.home.url.poster)
+  const baseUrl = useSelector(state => state.home.url.profile)
   const fallBackUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQGoDxtD59xH7IpAoS6QmVqNTV-GArgiAL2qpWhc1pIIC0U2bBv1Jpwpv2uwa55ztsvJo&usqp=CAU"
   const carousel = useRef()
   const navigate = useNavigate()

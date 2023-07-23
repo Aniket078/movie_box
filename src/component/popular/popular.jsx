@@ -16,9 +16,9 @@ const Popular = () => {
     <>
         <div  className='flex  md:mx-20  my-10 justify-between'>
           <motion.h1 
-            initial={{ y:100 }}
-            whileInView={{y:0 }}
-            transition={{ duration: 0.4, }}  
+            initial={{ opacity:0 }}
+            whileInView={{opacity:1 }}
+            transition={{ duration: 0.2, }}  
             className='text-white text-4xl md:text-6xl '> What's Popular</motion.h1>
           <div className='flex gap-3 items-center'>
             <SwitchTab sTab={category} onTabChange={onCategoryChange} data={["tv", "movie"]} />
@@ -26,7 +26,7 @@ const Popular = () => {
         </div>
         <motion.div 
           className='md:mx-20 overflow-hidden '
-          initial={{ y: 100 }}
+          initial={{ y: 50 }}
           whileInView={{y:0 }}
           transition={{ duration: 0.2 }}  
         >

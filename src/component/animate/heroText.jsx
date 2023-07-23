@@ -3,9 +3,6 @@ import React from 'react'
 
 const HeroText = ({text, key}) => {
 
-    const words = text.split("");
-    console.log(words);
-
     // const container = {
     //     hidden: { opacity: 0 },
     //     visible: (i = 1) => ({

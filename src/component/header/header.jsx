@@ -1,6 +1,7 @@
 import {  useState } from "react"
 import { Link, Outlet, useNavigate } from "react-router-dom"
 import search from  "./../../assets/search.png"
+import like from  "./../../assets/navLike.png"
 import { motion, AnimatePresence } from "framer-motion"
 const Header = () => {
     const navigate = useNavigate()
@@ -37,8 +38,10 @@ const Header = () => {
                 </AnimatePresence>
             <div  className="backdrop-blur-sm  flex flex-row h-16 md:h-28 justify-between px-4 md:px-12 items-center  text-white  top-0 z-10 w-full fixed">
                 <div><h1 className="cursor-pointer font-bold"><Link to={"/"} >Movie Box</Link></h1></div>
-                <div onClick={toggleSearch} className="cursor-pointer rounded-md  flex"><img className="bg-[#c5c5c56c] m-7 p-2 rounded-full mx-1  " width="35" height="35" src={search}  alt="search--v1"/> </div>
-                
+                <div className="flex">
+                    <div onClick={() => {}} className="cursor-pointer rounded-md  flex"><Link to={"/favourites"} ><img className="bg-[#c5c5c56c] m-7 p-2 rounded-full mx-1  " width="35" height="35" src={like}  alt="search--v1"/></Link> </div>
+                    <div onClick={toggleSearch} className="cursor-pointer rounded-md  flex"><img className="bg-[#c5c5c56c] m-7 p-2 rounded-full mx-1  " width="35" height="35" src={search}  alt="search--v1"/> </div>
+                </div>                
             </div>
             <Outlet />
         </>
