@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import MovieCard from '../../component/movieCard/movieCard'
 import down from "./../../assets/down.png"
 import SearchLoading from '../loading/searchLoading'
+import Footer from '../../component/footer/footer'
 
 
 const SearchResult = () => {
@@ -75,6 +76,7 @@ const SearchResult = () => {
                   <button className='bg-white w-72 p-2 rounded-lg text-black relative ' onClick={fetchNextPageData} >Load more<img className='animate-bounce absolute -right-9 top-3' width="26" height="26" src={down} alt="down--v1"/> </button>
                 </div>
               </div>
+              <Footer />
             </>
           ) : 
             <>

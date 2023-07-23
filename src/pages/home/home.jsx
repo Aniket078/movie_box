@@ -7,6 +7,7 @@ import Popular from "../../component/popular/popular"
 import TopRated from "../../component/topRated/topRated"
 import Error from "../error/error"
 import { motion , AnimatePresence } from "framer-motion"
+import Footer from "../../component/footer/footer"
 const Home = () => {
     const {data, loading, error} = useFetch("/movie/upcoming")
     console.log(error);
@@ -28,6 +29,7 @@ const Home = () => {
                         <Popular />
                         <TopRated />
                     </motion.div>
+                    <Footer />
                 </AnimatePresence>
             ) : 
                 <Error />}

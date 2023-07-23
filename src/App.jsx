@@ -58,7 +58,9 @@ function App() {
           <Route path="/favourites" element = {<Favourites />} />
         </Route>
       </Routes>
+
     </BrowserRouter>
+    
 
   )
 }

@@ -6,7 +6,7 @@ const HomeLoading = () => {
   return (
     <AnimatePresence>
       <motion.div 
-      className='h-screen  w-full flex-col gap-5 flex items-center justify-center'
+      className='h-screen  w-full flex-col gap-5 flex items-center justify-center overflow-hidden'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -43,6 +43,7 @@ const Header = () => {
                     <div onClick={toggleSearch} className="cursor-pointer rounded-md  flex"><img className="bg-[#c5c5c56c] m-7 p-2 rounded-full mx-1  " width="35" height="35" src={search}  alt="search--v1"/> </div>
                 </div>                
             </div>
+
             <Outlet />
         </>
     )

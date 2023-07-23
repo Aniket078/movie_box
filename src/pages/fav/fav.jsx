@@ -5,6 +5,7 @@ import not from  "./../../assets/notfound.png"
 
 import { useDispatch } from "react-redux"
 import { getFav } from "../../store/homeSlice"
+import Footer from "../../component/footer/footer"
 
 const Favourites = () => {
     const dispatch = useDispatch()
@@ -36,6 +37,7 @@ const Favourites = () => {
                     </div>
                 </>
                 }
+                <Footer/>
         </div>
     )
 }

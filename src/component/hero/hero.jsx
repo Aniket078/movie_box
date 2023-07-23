@@ -12,8 +12,8 @@ import { motion } from 'framer-motion'
 
 const Hero = (props) => {
     const [current, setCurrent] = useState(0)
-    const navigate = useNavigate()
     const details = props.data.results
+    const navigate = useNavigate()
     const baseUrl = useSelector(state => state.home.url.backdrop)
     const nextHero = () => setCurrent((current + 1) % details.length)
     const prevHero = () => {

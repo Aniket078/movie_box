@@ -10,6 +10,7 @@ import Carousel from "../../component/carousel/carousel"
 import HeroText from "../../component/animate/heroText"
 import { useEffect, useState } from "react"
 import { getFav, removeFav } from "../../store/homeSlice"
+import Footer from "../../component/footer/footer"
 
 const Details = () => {
   const [liked, setLiked] = useState(false)
@@ -130,7 +131,9 @@ const Details = () => {
               </motion.div>
           </div>
         </motion.div> 
+        <Footer />
       </AnimatePresence>
+      
     : <h1>error</h1>}
     </>
   )
