@@ -16,6 +16,7 @@ const Favourites = () => {
         dispatch(getFav(removed))
     }
     return (
+        <>
         <div className="max-w-6xl mx-auto">
             <h1 className="text-6xl text-white mt-24 py-10 md:text-left text-center  ">Favourites</h1>
             {fav.length>0 ? <div className=' grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-4 justify-center'  >
@@ -31,14 +32,15 @@ const Favourites = () => {
                 </div> 
                 :
                 <>
-                    <div className="flex items-center flex-col gap-5"> 
-                        <img src={not} />
+                    <div className="flex items-center flex-col gap-5 backdrop-grayscale-100"> 
+                        <img className="" src={not} />
                         <h1 className="text-red-500">Nothing found!</h1>
                     </div>
                 </>
                 }
-                <Footer/>
         </div>
+        <Footer/>   
+        </>
     )
 }
 
